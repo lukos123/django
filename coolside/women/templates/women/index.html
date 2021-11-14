@@ -1,0 +1,34 @@
+{% extends 'women/base.html' %}
+{% load static %}
+
+
+{% block menu %}
+<li class="header__item"><a id="linkAct" href="/admin/login/?next=/admin/login" class="header__link">Admin</a></li>
+{% if adm %}
+<li class="header__item"><a href="/admin/women/posts/add/" class="header__link">Create</a></li>
+
+<li class="header__item"><a href="/" class="header__link">First</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="content__flex">
+        {% for i in post %}
+            <div class="content__item">
+                <div class="content__img"><a href="/women/post/{{ i.id }}"><img src="media/{{ i.photo }}" alt="a"></a></div>
+                <div class="content__title"><a href="/">{{ i.title }}</a></div>
+            </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+{% endblock %}
+
+
+    
+    
+
+
+

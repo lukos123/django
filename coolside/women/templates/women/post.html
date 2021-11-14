@@ -1,0 +1,35 @@
+{% extends 'women/base.html' %}
+{% load static %}
+
+{% block menu %}
+<li class="header__item"><a id="linkAct" href="/admin/login/?next=/admin/login" class="header__link">Admin</a></li>
+{% if adm %}
+<li class="header__item"><a href="/admin/women/posts/add/" class="header__link">Create</a></li>
+
+<li class="header__item"><a href="/" class="header__link">First</a></li>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="content__post">
+
+        <div class="content__img">
+            <img src="../media/{{ post.photo }}" alt="a">
+        </div>
+        <div class="content__time">
+            <div class="content__nuw">Создано {{ post.time_create }}</div>
+            <div class="content__update">Изменино {{ post.time_update }}</div>
+            {% if adm %}
+            <a id="a" href="/admin/women/posts/{{ post.pk }}/change/">Изменить</a>
+            {% endif %}
+        </div>
+
+
+        <div class="content__title">{{ post.title }}</div>
+        <div id="texte" class="content__text">{{ post.content }} <br><br>
+
+    </div>
+
+
+</div>
+{% endblock %}
